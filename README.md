@@ -12,7 +12,7 @@ A Referral System With Laravel
 Via [Composer](https://getcomposer.org) to add the package to your project's dependencies:
 
 ```bash
-$ composer require Towoju5/laravel-referral
+ composer require Towoju5/laravel-referral
 ```
 
 First add service providers into the config/app.php
@@ -24,13 +24,13 @@ First add service providers into the config/app.php
 Publish the migrations
 
 ```bash
-$ php artisan vendor:publish --provider="Towoju5\Referral\ReferralServiceProvider" --tag="migrations"
+ php artisan vendor:publish --provider="Towoju5\Referral\ReferralServiceProvider" --tag="migrations"
 ```
 
 Publish the config
 
 ```bash
-$ php artisan vendor:publish --provider="Towoju5\Referral\ReferralServiceProvider" --tag="config"
+ php artisan vendor:publish --provider="Towoju5\Referral\ReferralServiceProvider" --tag="config"
 ```
 
 ## Setup the model
