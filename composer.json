@@ -7,14 +7,6 @@
         "name": "towoju5",
         "email": "towojuads@gmail.com"
     }],
-    "require": {
-        "php": ">=7.0"
-    },
-    "require-dev": {
-        "laravel/laravel": "^5.5",
-        "mockery/mockery": "~0.9",
-        "phpunit/phpunit": "~4.0|~5.0"
-    },
     "autoload": {
         "psr-4": {
             "towoju5\\Referral\\": "src/"
