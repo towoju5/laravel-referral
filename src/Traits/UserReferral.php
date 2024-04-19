@@ -22,6 +22,12 @@ trait UserReferral
         return url('/').'/?ref='.$this->affiliate_id;
     }
 
+    public function myReferrals()
+    {
+        $users = \App\Models\User::where('referred_by', auth()->id())->get();
+        return $users;
+    }
+
     public static function scopeReferralExists(Builder $query, $referral)
     {
         return $query->whereAffiliateId($referral)->exists();
