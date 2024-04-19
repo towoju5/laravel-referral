@@ -4,12 +4,11 @@
     "keywords": ["referral", "referral-system", "affiliate-tracking"],
     "license": "MIT",
     "authors": [{
-        "name": "towoju5",
-        "email": "towojuads@gmail.com"
+        "name": "Emmanuel A Towoju"
     }],
     "autoload": {
         "psr-4": {
-            "towoju5\\Referral\\": "src/"
+            "Towoju5\\Referral\\": "src/"
         }
     },
     "autoload-dev": {
@@ -20,7 +19,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "towoju5\\Referral\\ReferralServiceProvider"
+                "Towoju5\\Referral\\ReferralServiceProvider"
             ]
         }
     },
