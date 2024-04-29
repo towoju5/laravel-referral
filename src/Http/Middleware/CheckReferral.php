@@ -17,7 +17,7 @@ class CheckReferral
 {
     public function handle($request, Closure $next)
     {
-        if ($request->hasCookie('referral')) {
+        if (!$request->hasCookie('referral')) {
             return $next($request);
         }
 
