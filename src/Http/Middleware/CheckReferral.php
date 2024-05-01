@@ -1,9 +1,17 @@
 <?php
 
-namespace App\Http\Middleware;
+/*
+ * This file is part of towoju5/laravel-referral package.
+ *
+ * © towoju5 <towojuads@gmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
+namespace Towoju5\Referral\Http\Middleware;
 
 use Closure;
-use Illuminate\Support\Facades\Cookie;
 
 class CheckReferral
 {
