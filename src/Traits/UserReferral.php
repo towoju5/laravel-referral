@@ -1,14 +1,5 @@
 <?php
 
-/*
- * This file is part of towoju5/laravel-referral package.
- *
- * © towoju5 <towojuads@gmail.com>
- *
- * This source file is subject to the MIT license that is bundled
- * with this source code in the file LICENSE.
- */
-
 namespace Towoju5\Referral\Traits;
 
 use Illuminate\Database\Eloquent\Builder;
@@ -19,13 +10,12 @@ trait UserReferral
 {
     public function getReferralLink()
     {
-        return url('/').'/?ref='.$this->affiliate_id;
+        return url('/').'/?ref='.urlencode($this->affiliate_id);
     }
 
     public function myReferrals()
     {
-        $users = \App\Models\User::where('referred_by', auth()->id())->get();
-        return $users;
+        return \App\Models\User::where('referred_by', auth()->id())->get();
     }
 
     public static function scopeReferralExists(Builder $query, $referral)
@@ -38,8 +28,14 @@ trait UserReferral
         parent::boot();
 
         static::creating(function ($model) {
-            if ($referredBy = Cookie::get('referral')) {
-                $model->referred_by = $referredBy;
+            try {
+                $referredBy = Cookie::get('referral');
+                if ($referredBy) {
+                    $model->referred_by = $referredBy;
+                }
+            } catch (\Throwable $e) {
+                // Handle error, if any
+                report($e);
             }
 
             $model->affiliate_id = self::generateReferral();

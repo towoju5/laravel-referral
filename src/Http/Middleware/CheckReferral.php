@@ -1,28 +1,20 @@
 <?php
 
-/*
- * This file is part of towoju5/laravel-referral package.
- *
- * © towoju5 <towojuads@gmail.com>
- *
- * This source file is subject to the MIT license that is bundled
- * with this source code in the file LICENSE.
- */
-
-namespace Towoju5\Referral\Http\Middleware;
+namespace App\Http\Middleware;
 
 use Closure;
+use Illuminate\Support\Facades\Cookie;
 
-class CheckReferral
+class ReferrerMiddleware
 {
     public function handle($request, Closure $next)
     {
-        if (!$request->hasCookie('referral')) {
-            return $next($request);
-        }
+        if ($request->has('ref') && $request->query('ref') === 'referrerId') {
+            // Get the value of the referrerId
+            $referrerId = $request->query('ref');
 
-        if (($ref = $request->query('ref')) && app(config('referral.user_model', 'App\Models\User'))->referralExists($ref)) {
-            return redirect($request->fullUrl())->withCookie(cookie()->forever('referral', $ref));
+            // Set referral information in cookies with a lifespan of 6 months
+            Cookie::queue('referral', $referrerId, 60 * 24 * 30 * 6); // 60 minutes * 24 hours * 30 days * 6 months
         }
 
         return $next($request);
