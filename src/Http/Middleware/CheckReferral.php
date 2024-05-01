@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Support\Facades\Cookie;
 
-class ReferrerMiddleware
+class CheckReferral
 {
     public function handle($request, Closure $next)
     {
