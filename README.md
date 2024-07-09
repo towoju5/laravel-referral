@@ -2,14 +2,14 @@
 <p align="center">
     <img src="/images/header.jpeg" width="600" alt="Heading of Laravel Referral">
     <p align="center">
-        <a href="https://packagist.org/packages/jijunair/laravel-referral"><img alt="Latest Version on Packagist" src="https://img.shields.io/packagist/v/jijunair/laravel-referral.svg?style=flat-square"></a>
-        <a href="https://packagist.org/packages/jijunair/laravel-referral"><img alt="Total Downloads" src="https://img.shields.io/packagist/dt/jijunair/laravel-referral"></a>
-        <a href="https://packagist.org/packages/jijunair/laravel-referral"><img alt="License" src="https://img.shields.io/github/license/jijunair/laravel-referral"></a>
+        <a href="https://packagist.org/packages/towoju5/laravel-referral"><img alt="Latest Version on Packagist" src="https://img.shields.io/packagist/v/towoju5/laravel-referral.svg?style=flat-square"></a>
+        <a href="https://packagist.org/packages/towoju5/laravel-referral"><img alt="Total Downloads" src="https://img.shields.io/packagist/dt/towoju5/laravel-referral"></a>
+        <a href="https://packagist.org/packages/towoju5/laravel-referral"><img alt="License" src="https://img.shields.io/github/license/towoju5/laravel-referral"></a>
     </p>
 </p>
 
 
-The "jijunair/laravel-referral" package is a custom Laravel package that provides referral code functionality for your Laravel applications. It allows you to generate referral codes, associate them with users, retrieve users based on their referral codes and all other related features.
+The "towoju5/laravel-referral" package is a custom Laravel package that provides referral code functionality for your Laravel applications. It allows you to generate referral codes, associate them with users, retrieve users based on their referral codes and all other related features.
 
 - [Installation](#installation)
     - [Configuration](#configuration)
@@ -32,13 +32,13 @@ The "jijunair/laravel-referral" package is a custom Laravel package that provide
 You can install the package via Composer by running the following command:
 
 ```bash
-composer require jijunair/laravel-referral
+composer require towoju5/laravel-referral
 ```
 
 #### Configuration
 The package provides a configuration file that allows you to customize its behavior. You should publish the migration and the config/referral.php config file with:
 ```php
-php artisan vendor:publish --provider="Jijunair\LaravelReferral\Providers\ReferralServiceProvider"
+php artisan vendor:publish --provider="towoju5\LaravelReferral\Providers\ReferralServiceProvider"
 ```
 After publishing, you can find the configuration file at config/referral.php.
 
@@ -64,7 +64,7 @@ After the config and migration have been published and configured, you can creat
 #### Add Trait
 Add the necessary trait to your User model:
 ```php
-use Jijunair\LaravelReferral\Traits\Referrable;
+use towoju5\LaravelReferral\Traits\Referrable;
 
 class User extends Model
 {
@@ -94,7 +94,7 @@ This retrieves the referrer associated with the user.<br><br>
 #### Get Referrer by Referral Code
 To get the referrer by referral code, you can use the following code:
 ```php
-use Jijunair\LaravelReferral\Models\Referral;
+use towoju5\LaravelReferral\Models\Referral;
 use Illuminate\Support\Facades\Cookie;
 
 $referralCode = Cookie::get(config('referral.cookie_name'));
@@ -142,3 +142,4 @@ The Laravel Referral Package is open-source software licensed under the [MIT](LI
 
 
 
+## Note: This is a complete fork from jijunair/laravel-referral but with the php and few other requirements modified.
