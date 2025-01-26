@@ -67,10 +67,10 @@ trait Referrable
     /**
      * Create a referral account for the user.
      *
-     * @param  int|null  $referrerID
+     * @param string|int|null $referrerID
      * @return void
      */
-    public function createReferralAccount(int $referrerID = NULL)
+    public function createReferralAccount($referrerID = NULL)
     {
 
         $prefix = config('referral.ref_code_prefix');
